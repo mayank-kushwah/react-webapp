@@ -1,0 +1,15 @@
+version: 0.1
+os: ubuntu
+files:
+  - source: /
+    destination: /var/www/
+hooks:
+  ApplicationStart:
+    - location: scripts/start_webapp.sh
+      timeout: 300
+      runas: root
+   BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  
